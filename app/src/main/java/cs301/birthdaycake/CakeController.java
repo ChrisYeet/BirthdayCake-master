@@ -18,7 +18,7 @@ public class CakeController implements View.OnClickListener, CompoundButton.OnCh
     }
 
     public void onClick(View button) {
-        Log.d("button", "Cake Controller onClick");
+        Log.d("ExtinguishButton", "Cake Controller onClick");
 
         pCM.candlesLit = false;
         pCV.invalidate();
@@ -26,7 +26,7 @@ public class CakeController implements View.OnClickListener, CompoundButton.OnCh
 
     @Override
     public void onCheckedChanged(CompoundButton bV, boolean checked) {
-        Log.d("switch2", "Cake Controller candleSwitch");
+        Log.d("CandlesSwitch", "Cake Controller candleSwitch");
 
         if(!checked) {
             pCM.hasCandles = false;
