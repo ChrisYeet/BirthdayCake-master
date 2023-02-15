@@ -4,6 +4,7 @@ import android.content.pm.ActivityInfo;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CompoundButton;
@@ -28,6 +29,8 @@ public class MainActivity extends AppCompatActivity {
 
         SeekBar amtCandles = findViewById(R.id.seekBar3);
         amtCandles.setOnSeekBarChangeListener(CC);
+
+        findID.setOnTouchListener(CC);
     }
 
     public void goodbye(View button) {

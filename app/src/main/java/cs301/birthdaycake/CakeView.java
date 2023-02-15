@@ -16,6 +16,9 @@ public class CakeView extends SurfaceView {
     Paint outerFlamePaint = new Paint();
     Paint innerFlamePaint = new Paint();
     Paint wickPaint = new Paint();
+    Paint squareOne = new Paint();
+    Paint squareTwo = new Paint();
+
 
     /* These constants define the dimensions of the cake.  While defining constants for things
         like this is good practice, we could be calculating these better by detecting
@@ -54,7 +57,7 @@ public class CakeView extends SurfaceView {
         setWillNotDraw(false);
 
         //Setup our palette
-        cakePaint.setColor(0xFF000000);  //violet-red
+        cakePaint.setColor(Color.rgb(254, 74, 73));  //violet-red
         cakePaint.setStyle(Paint.Style.FILL);
         frostingPaint.setColor(0xFFFFFACD);  //pale yellow
         frostingPaint.setStyle(Paint.Style.FILL);
@@ -69,6 +72,10 @@ public class CakeView extends SurfaceView {
 
         setBackgroundColor(Color.WHITE);  //better than black default
 
+        squareOne.setColor(Color.rgb(254, 215, 102));
+        squareOne.setStyle(Paint.Style.FILL);
+        squareTwo.setColor(Color.rgb(42, 183, 202));
+        squareTwo.setStyle(Paint.Style.FILL);
     }
 
     /**
@@ -139,7 +146,19 @@ public class CakeView extends SurfaceView {
             }
         }
 
+        Squares(canvas, cakeController.xfloat, cakeController.yfloat);
     }//onDraw
+
+
+    public void Squares(Canvas canvas, float x, float y) {
+        if(cakeController.touched) {
+            canvas.drawRect(x - 50, y - 50, x, y, squareOne);
+            canvas.drawRect(x, y-50, x+50, y, squareTwo);
+            canvas.drawRect(x, y, x+50, y + 50, squareOne);
+            canvas.drawRect(x, y, x-50, y + 50, squareTwo);
+            cakeController.touched = false;
+        }
+    }
 
     //Getting for Cake Controller
     public CakeModel getCakeController() {

@@ -6,4 +6,8 @@ public class CakeModel {
     public boolean hasFrosting = true;
     public boolean hasCandles = true;
 
+    public boolean touched = false;
+    public float xfloat = 0;
+    public float yfloat = 0;
+
 }
