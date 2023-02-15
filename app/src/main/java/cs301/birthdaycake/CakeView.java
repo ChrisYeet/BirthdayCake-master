@@ -19,6 +19,10 @@ public class CakeView extends SurfaceView {
     Paint squareOne = new Paint();
     Paint squareTwo = new Paint();
 
+    Paint balloonPaint = new Paint();
+    Paint balloonString = new Paint();
+
+    Paint textPaint = new Paint();
 
     /* These constants define the dimensions of the cake.  While defining constants for things
         like this is good practice, we could be calculating these better by detecting
@@ -36,6 +40,9 @@ public class CakeView extends SurfaceView {
     public static final float wickWidth = 6.0f;
     public static final float outerFlameRadius = 30.0f;
     public static final float innerFlameRadius = 15.0f;
+    public int xCordTxt;
+    public int yCordTxt;
+    public String posText;
 
 
 
@@ -69,6 +76,11 @@ public class CakeView extends SurfaceView {
         innerFlamePaint.setStyle(Paint.Style.FILL);
         wickPaint.setColor(Color.BLACK);
         wickPaint.setStyle(Paint.Style.FILL);
+        balloonPaint.setColor(Color.BLUE);
+        balloonPaint.setStyle(Paint.Style.FILL);
+        balloonString.setColor(Color.BLACK);
+        balloonString.setStyle(Paint.Style.STROKE);
+        balloonString.setStrokeWidth(8);
 
         setBackgroundColor(Color.WHITE);  //better than black default
 
@@ -76,6 +88,16 @@ public class CakeView extends SurfaceView {
         squareOne.setStyle(Paint.Style.FILL);
         squareTwo.setColor(Color.rgb(42, 183, 202));
         squareTwo.setStyle(Paint.Style.FILL);
+    }
+
+    /**
+     * draws a balloon that is not perfectly round but, instead, more "balloon-like".
+     */
+    public void drawBalloon(Canvas canvas, int x, int y) {
+        if (cakeController.hasBalloon) {
+            canvas.drawOval(x-105, y-140, x+150, y+200, balloonPaint);
+            canvas.drawLine(x+20, y+200, x+20, y+500, balloonString);
+        }
     }
 
     /**
@@ -144,7 +166,14 @@ public class CakeView extends SurfaceView {
             for(int i = 1; i <= cakeController.candleCake; i++) {
                 drawCandle(canvas, (i * x) - y, cakeTop);
             }
+
+            posText = xCordTxt + ", " + yCordTxt;
+            textPaint.setColor(Color.RED);
+            textPaint.setTextSize(125);
+            canvas.drawText(posText,1800,1000,textPaint);
         }
+
+        drawBalloon(canvas, (int)cakeController.balloonX, (int)cakeController.balloonY);
 
         Squares(canvas, cakeController.xfloat, cakeController.yfloat);
     }//onDraw

@@ -59,6 +59,13 @@ public class CakeController implements View.OnClickListener, View.OnTouchListene
         pCM.xfloat = motionEvent.getX();
         pCM.yfloat = motionEvent.getY();
         pCM.touched = true;
+
+        pCM.hasBalloon = true;
+        pCM.balloonX = motionEvent.getX();
+        pCM.balloonY = motionEvent.getY();
+        pCV.xCordTxt = (int) motionEvent.getX();
+        pCV.yCordTxt = (int) motionEvent.getY();
+
         pCV.invalidate();
         return true;
     }
