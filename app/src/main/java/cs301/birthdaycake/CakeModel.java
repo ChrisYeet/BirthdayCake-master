@@ -6,4 +6,7 @@ public class CakeModel {
     public boolean hasFrosting = true;
     public boolean hasCandles = true;
 
+    public int xCord;
+    public int yCord;
+
 }
