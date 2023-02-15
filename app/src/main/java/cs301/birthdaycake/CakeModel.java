@@ -8,4 +8,8 @@ public class CakeModel {
     public boolean hasBalloon = false;
     public double balloonX = 0;
     public double balloonY = 0;
+
+    public int xCord;
+    public int yCord;
+
 }

@@ -11,6 +11,7 @@ public class CakeController implements View.OnTouchListener, View.OnClickListene
     private CakeView pCV;
     private CakeModel pCM;
 
+
     public CakeController(CakeView cV) {
         //Setters
         pCV = cV;
@@ -58,8 +59,11 @@ public class CakeController implements View.OnTouchListener, View.OnClickListene
         pCM.hasBalloon = true;
         pCM.balloonX = motionEvent.getX();
         pCM.balloonY = motionEvent.getY();
+        pCV.xCordTxt = (int) motionEvent.getX();
+        pCV.yCordTxt = (int) motionEvent.getY();
 
         pCV.invalidate();
         return false;
     }
+
 }
