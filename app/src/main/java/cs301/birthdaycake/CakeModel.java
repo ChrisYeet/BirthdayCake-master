@@ -5,5 +5,7 @@ public class CakeModel {
     public int candleCake = 2;
     public boolean hasFrosting = true;
     public boolean hasCandles = true;
-
+    public boolean hasBalloon = false;
+    public double balloonX = 0;
+    public double balloonY = 0;
 }
